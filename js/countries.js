@@ -5,7 +5,7 @@ const loadCountries = () => {
 };
 
 const displayCountries = countries => {
-    // console.log(countries);
+    console.log(countries);
     const allCountriesHTML = countries.map(country => getCountryHTML(country));
     // console.log(allCountriesHTML);
     const container = document.getElementById('countries');
@@ -23,14 +23,16 @@ const displayCountries = countries => {
 //         </div>
 //     `;
 // }
-const getCountryHTML = ({name, flags, capital}) => {
+const getCountryHTML = ({name, flags, capital, area,continents }) => {
     // option 2
     // const {name, flags, capital} = country; //parameter destructuring
     return `
         <div class="country">
             <h2>${name.common}</h2>
             <img src="${flags.png}" alt="${name.common}">
-            <p> ${capital}</p>
+            <p><strong>Capital:</strong> ${capital}</p>
+            <p><strong>Continent:</strong> ${continents}</p>
+            <p><strong>Total Area:</strong> ${area}</p>
             <button onclick="loadCountryByName('${name.common}')">Details</button>
         </div>
     `;
